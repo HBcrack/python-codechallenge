@@ -1,16 +1,16 @@
-information = []
+details = []
 data = []
 count = 0
 j = 1
 """
 Initialize the class object 
 """
-class Application():
+class Books():
     
-    def details(self):
+    def list(self):
         for i in range(count):
             print("\n{5} The name of the book is {0}, written by {1}.\nthe version {2} published in the year {3} at the price of {4}".format(data[i][0],data[i][1],data[i][2],data[i][3],data[i][4],i+1))
-    def sort_price(self):
+    def orderbyprize(self):
         # Filtering the data accourding to prize
         print("\n list based on prize")
         p=[]
@@ -22,29 +22,29 @@ class Application():
             for k in range (count):
                 if(i == data[k][4]):
                     print(data[k])
-    def application_input(self):
-        global information
+    def user_input(self):
+        global details 
         global data
         global count
         global j
-        print("Enter the software application details :")
+        print("Enter the books details :")
         count = int(input('Enter the total number of books :'))
         for i in range(count):
             # Getting input from the user 
             name = input("\nEnter the " +str(i+j)+" book name : ")
-            information.append(name)
+            details.append(name)
             author = input("Enter the " +str(i+j)+" author : ")
-            information.append(author)
+            details.append(author)
             version = input("Enter the " +str(i+j)+" version : ")
-            information.append(version)
+            details.append(version)
             year = int(input("Enter the "+str(i+j)+" published year: "))
-            information.append(year)
+            details.append(year)
             price = int(input("Enter the "+str(i+j)+"  book price : "))
-            information.append(price)
-            data.append(information)
-            information = []
+            details.append(price)
+            data.append(details)
+            details = []
                  
-    def sort_year(self):
+    def orderbyyear(self):
         print("\n list based on published year")  
         year=[]
         for i in range(count):
@@ -62,12 +62,12 @@ class Application():
             choice=int(input(("Enter  1 to search \nOR\nEnter 0 to stop ")))
             # If any records found then return the filter result otherwise warning message
             if(choice==1):
-                s=input("Enter the AUTHOR name : ")
-                q=int(input("Enter the published year : "))
+                author=input("Enter the AUTHOR name : ")
+                year=int(input("Enter the published year : "))
                 flag=0
                 for i in range(count):
-                    if(q == data[i][3]):
-                        if(s == data[i][1]):
+                    if(year == data[i][3]):
+                        if(author == data[i][1]):
                             print("The searched book is  ",data[i])
                             flag=flag+1
                 if(flag == 0):
@@ -76,10 +76,10 @@ class Application():
                 return print("THANK YOU!!")
             #sorting by year
     
-obj = Application()
-obj.application_input()
-obj.details()
-obj.sort_price()
-obj.sort_year()
+obj = Books()
+obj.user_input()
+obj.list()
+obj.orderbyprize()
+obj.orderbyyear()
 obj.search()
 
