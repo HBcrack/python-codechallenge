@@ -43,6 +43,7 @@ class Books():
             details.append(price)
             data.append(details)
             details = []
+             #sorting by year
                  
     def orderbyyear(self):
         print("\n list based on published year")  
@@ -74,7 +75,7 @@ class Books():
                     print("No such book is found by {1} in {0}".format(q, s))
             elif(choice==0):
                 return print("THANK YOU!!")
-            #sorting by year
+           
     
 obj = Books()
 obj.user_input()
